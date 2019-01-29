@@ -1,10 +1,11 @@
 // 数据api子系统
 
-var port = 8090;
+const port = 8090;
 const express = require('express');
 
-var app=express();
+const app=express();
 
 app.listen(port,()=>{
-	console.log('....'+port+'.......')
+	console.log('数据api子系统'+port+'.......')
 })
+
