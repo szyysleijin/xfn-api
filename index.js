@@ -2,6 +2,7 @@
 
 const port = 8090;
 const express = require('express');
+const bodyParser = require('body-parser')
 const category = require('./routes/admin/category.js');
 const app=express();
 
@@ -14,6 +15,8 @@ app.listen(port,()=>{
 
 //  中间件 cors
 app.use(cors());
+// app.use(bodyPaser.urlencoded({}))  //之前
+app.use(bodyParser.json())
 
 // 挂载路由
 app.use('/admin/category',category);
