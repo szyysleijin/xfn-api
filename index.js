@@ -17,3 +17,7 @@ app.use(cors());
 
 // 挂载路由
 app.use('/admin/category',category)
+app.use('/admin/category',category)
+app.use('/admin/category',category)
+app.use('/admin/category',category)
+app.use('/admin/category',category)
