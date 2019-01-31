@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+	<body>
+		<button id='btn1'>登录</button>
+		<button id='btn2'>修改密码</button>
+		
+
+		<script src='axios.min.js'></script>
+
+		<script>
+			btn1.onclick = function() {
+				var url = 'http://127.0.0.1:8090/admin/login/admi33n/123456';
+				axios.get(url).then((res) => {
+					console.log(res.data)
+				}).catch(err => {
+					console.log(err)
+				})
+			}
+			btn2.onclick=function(){
+				var url = 'http://127.0.0.1:8090/admin';
+				var data={aname:'admin',oldPwd:'777777',newPwd:'777777'};
+				axios.patch(url,data).then(res=>{
+					console.log(res)
+				}).catch(err=>{
+					console.log(err)
+				})
+			}
+			
+		</script>
+	</body>
+</html>
