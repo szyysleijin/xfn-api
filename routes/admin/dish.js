@@ -35,7 +35,7 @@ var upload=multer({
 })
 
 router.post('/img',upload.single('dishImg'),(req,res)=>{     //upload.array 多个上传文件
-    //console.log(req.file)  //客户端上传图片
+    //console.log(req.file)  客户端上传图片
     //console.log(req.body)  提交字符串
     function random (suffix){
         var time =new Date().getTime()
@@ -48,8 +48,17 @@ router.post('/img',upload.single('dishImg'),(req,res)=>{     //upload.array 多�
 
     fs.rename(tmpImg,'img/dish/'+newImg,()=>{
         res.send({code:200,msg:'文件上传成功',fileName:newImg})
-    })
+    }) 
 })  
 
+// 3. 添加菜品
+router.post('/',(req,res)=>{
+    var data = req.body;
+    var sql = 'insert into xfn_dish set ?';
+    pool.query(sql,data,(err,result)=>{
+        if(err) throw err;
+        res.send({code:200,msg:'添加成功',dishId:result.insertId}) // insert语句产生的自增编号 result.insertId
+    })
+})
 
 module.exports=router

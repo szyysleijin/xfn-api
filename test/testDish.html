@@ -12,12 +12,15 @@
         <button id='btn3'>添加菜品</button>
         <button id='btn4'>删除菜品</button>
         <button id='btn5'>修改菜品</button>
+		<button id='btn6'>异步上传文件</button>
+		<input type='text' id='inputDesc'>
+		<input type='file' id='inputFile'>
 		
-
-		<form action='http://127.0.0.1:8090/admin/dish/img' method='post' enctype='multipart/form-data'>
-			<input type='file' name='dishImg'><br>
-			<input type='submit'>	
-		</form>
+			<form action='http://127.0.0.1:8090/admin/dish/img' method='post' enctype='multipart/form-data'>
+				<input type='file' name='dishImg'><br>
+				<input type='submit'>	
+			</form>
+	
 		<script src='axios.min.js'></script>
 
 		<script>
@@ -38,7 +41,26 @@
 					console.log(err)
 				})
 			}
-			
+			btn6.onclick=function(){
+				var url = 'http://127.0.0.1:8090/admin/dish/img';
+				// 请求主体 : multipart/form-data
+				var data = new FormData()
+				data.append('description',inputDesc.value)
+				data.append('dishImg',inputFile.files[0])
+				//console.dir(inputFile)
+				axios.post(url,data).then(res=>{
+					console.log(res)
+				}).catch(err=>console.log(err))
+			}
+			btn3.onclick=function(){
+				var url = 'http://127.0.0.1:8090/admin/dish';
+				var data={title:'红茶',imgUrl:'123.jpg',price:'128',detail:'红茶详情',categoryId:'7'};
+				axios.post(url,data).then(res=>{
+					console.log(res)
+				}).catch(err=>{
+					console.log(err)
+				})
+			}
 		</script>
 	</body>
 </html>
