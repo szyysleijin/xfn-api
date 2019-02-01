@@ -8,7 +8,8 @@ const bodyParser = require('body-parser')
 const category = require('./routes/admin/category.js');
 const admin = require('./routes/admin/admin.js');
 const dish = require('./routes/admin/dish.js')
-
+const settings = require('./routes/admin/settings')
+const table = require('./routes/admin/table')
 
 const app=express();
 
@@ -28,4 +29,6 @@ app.use(bodyParser.json())
 app.use('/admin/category',category);
 app.use('/admin',admin)
 app.use('/admin/dish',dish)
+app.use('/admin/settings',settings)
+app.use('/admin/table',table)
 
