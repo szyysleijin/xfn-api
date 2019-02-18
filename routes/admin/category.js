@@ -38,7 +38,7 @@ router.post('/',(req,res)=>{
 	var sql  = 'insert into xfn_category set ?'
 	pool.query(sql,data,(err,result)=>{
 		if(err) throw err;
-		res.send({code:200,msg:'添加成功'})
+		res.send({code:200,msg:'添加成功',cid:result.insertId})
 	})
 })
 

@@ -8,7 +8,7 @@ var router = express.Router()
 router.get('/login/:aname/:apwd', (req, res)=>{
   var aname = req.params.aname;
 	var apwd = req.params.apwd;
-	console.log(aname,apwd)
+	// console.log(aname,apwd)
   //需要对用户输入的密码执行加密函数
   pool.query('SELECT aid FROM xfn_admin WHERE aname=? AND apwd=PASSWORD(?)', [aname, apwd], (err, result)=>{
 		if(err)throw err;

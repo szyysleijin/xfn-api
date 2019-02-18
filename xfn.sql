@@ -24,7 +24,7 @@ CREATE TABLE xfn_settings(
   copyright VARCHAR(128)
 );
 INSERT INTO xfn_settings VALUES
-(NULL, '小肥牛', 'http://127.0.0.1:8090', 'http://127.0.0.1:8091', 'http://127.0.0.1:8092', '粤ICP备6872123123号-3', 'Copyright © 深圳xxxxx公司');
+(NULL, '后台', 'http://127.0.0.1:8090', 'http://127.0.0.1:8091', 'http://127.0.0.1:8092', '粤ICP备6872123123号-3', 'Copyright © 深圳xxxxx公司');
 
 /*桌台表*/
 CREATE TABLE xfn_table(
